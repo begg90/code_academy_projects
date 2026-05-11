@@ -15,7 +15,33 @@ print(df.describe(include='all'))
 # look to unique countries in our dataset
 print(df['Country'].unique())
 
-# we can estract the data for a specific country, for example, we can extract the data for 'United States', 'China and 'Germany' to compare their life expectancy and GDP per capita over the years
-usa_data = df[df['Country'] == 'United States']
+# we can extract the data for a specific country
+usa_data = df[df['Country'] == 'United States of America']
 china_data = df[df['Country'] == 'China']
 germany_data = df[df['Country'] == 'Germany']
+chile_data = df[df['Country'] == 'Chile']
+mexico_data = df[df['Country'] == 'Mexico']
+zimbabwe_data = df[df['Country'] == 'Zimbabwe']
+
+# let's look at the life expectancy over time for our countries. Zimbawe is an outlier, so we will give it a separate plot
+plt.plot(usa_data['Year'], usa_data['Life expectancy at birth (years)'], label='United States')
+plt.plot(china_data['Year'], china_data['Life expectancy at birth (years)'], label='China')
+plt.plot(germany_data['Year'], germany_data['Life expectancy at birth (years)'], label='Germany')
+plt.plot(chile_data['Year'], chile_data['Life expectancy at birth (years)'], label='Chile')
+plt.plot(mexico_data['Year'], mexico_data['Life expectancy at birth (years)'], label='Mexico')
+
+plt.xlabel('Year')
+plt.ylabel('Life Expectancy')
+plt.title('Life Expectancy Over Time')
+plt.legend()
+plt.show()
+plt.clf()
+
+plt.plot(zimbabwe_data['Year'], zimbabwe_data['Life expectancy at birth (years)'], label='Zimbabwe')
+plt.plot(usa_data['Year'], usa_data['Life expectancy at birth (years)'], label='United States')
+plt.xlabel('Year')
+plt.ylabel('Life Expectancy')
+plt.title('Life Expectancy Over Time (Zimbabwe vs USA)')
+plt.legend()
+plt.show()
+plt.clf()
