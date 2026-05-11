@@ -11,3 +11,11 @@ print(df.head())
 
 # to get a summary of our data, we can use the describe() method to see the statistical summary of our columns
 print(df.describe(include='all'))
+
+# look to unique countries in our dataset
+print(df['Country'].unique())
+
+# we can estract the data for a specific country, for example, we can extract the data for 'United States', 'China and 'Germany' to compare their life expectancy and GDP per capita over the years
+usa_data = df[df['Country'] == 'United States']
+china_data = df[df['Country'] == 'China']
+germany_data = df[df['Country'] == 'Germany']
